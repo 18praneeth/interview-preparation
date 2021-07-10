@@ -1,0 +1,17 @@
+# Recursive Binary Search
+
+def binary_search_helper(arr, val, low, high):
+    if low > high: #corner case
+        return -1
+    mid = low + (high - low) // 2
+
+    if arr[mid] == val:
+        return mid
+    elif arr[mid] > val:
+        return binary_search_helper(arr, val, low, mid - 1)
+    else:
+        return binary_search_helper(arr, val, mid + 1, high)
+
+
+def binary_search(arr, val):
+    return binary_search_helper(arr, val, 0, len(arr) - 1)

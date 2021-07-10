@@ -1,0 +1,15 @@
+# 4, 5, 6, 1, 2, 3
+
+def rotaion_array_helper(array, low, high):
+    if low > high:
+        return -1
+
+    if array[mid] < array[mid - 1]:
+        return mid
+
+    if array[mid + 1] < array[mid]:
+        return mid + 1
+
+    if array[mid] < array[high]:
+        return rotaion_array_helper(array, low, mid-1)
+    return rotaion_array_helper(array, mid+1, high)

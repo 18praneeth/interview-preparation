@@ -1,0 +1,16 @@
+# Iterative Binary Search
+
+def binary_search(arr, val):
+    l = 0
+    h = len(arr) - 1
+    while(l <= h):
+        m = l + ((h-l)//2)
+        if(arr[m] == val):
+            return m
+
+        elif(arr[m] > val):
+            h = m - 1
+        else:
+            l = m + 1
+    
+    return -1 #Corner case
