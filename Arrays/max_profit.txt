@@ -1,0 +1,13 @@
+# 0 1 0 1 7  5  6 
+# 8 9 5 6 12 10 11
+
+def max_sell(values):
+
+    global_small = values[0]
+    global_profit = 0
+
+    for value in values:
+        global_small = min(global_small, value)
+        global_profit = max(global_profit, value - global_small)
+
+    return global_profit
