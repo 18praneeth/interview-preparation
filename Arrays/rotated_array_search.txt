@@ -1,0 +1,22 @@
+def rotated_search_helper(nums, target):
+    low = 0
+    high = len(nums) - 1
+
+    while (low <= high):
+        mid = low + (high-low)//2
+
+        if target == nums[mid]:
+            return mid
+
+        if nums[mid] >= nums[low] and target <= nums[mid] and target >= nums[low]:
+            high = mid - 1
+        elif nums[mid] <= nums[high] and target >= nums[mid] and target <= nums[high]:
+            low = mid + 1
+        elif nums[high] <= nums[mid]:
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    return -1
+
+        

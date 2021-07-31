@@ -7,9 +7,9 @@ def rotaion_of_array(arr):
     while(l <= h): # l = low, h = high
         mid = l + (h-l)//2
         
-        if(mid+1 < mid): #  can add mid < high and
+        if(arr[mid+1] < arr[mid]): #  can add mid < high and
             return mid + 1
-        if(mid < mid-1): # low < mid
+        if(arr[mid] < arr[mid-1]): # low < mid
             return mid
         
         if(arr[mid] < arr[h]):

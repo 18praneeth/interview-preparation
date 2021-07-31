@@ -1,0 +1,22 @@
+def target_triplet(arr, target):
+    # Assume array is sorted
+    # if not apply arr.sort()
+
+    for i in range(0, len(arr)-2):
+
+        left = i + 1
+        right = len(arr) - 1
+
+        while left < right:
+            if(arr[i]+arr[left]+arr[right] == target):
+                print("Target location is found")
+                return True # We can also append  these values to an existing array.
+
+            elif(arr[i]+arr[left]+arr[right] < target):
+                left += 1
+
+            elif(arr[i]+arr[left]+arr[right] > target):
+                right -= 1
+
+    return -1 #No match
+            
