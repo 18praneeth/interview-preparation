@@ -1,0 +1,9 @@
+def bubbleSort(self, arry):
+    arry_len = len(arry)
+
+    for i in range(arry_len):
+        for j in range(0, arry_len-i-1):
+            if arry[j] > arry[j+1]:
+                arry[j], arry[j+1] = arry[j+1], arry[j]
+
+    return arry

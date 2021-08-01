@@ -1,0 +1,9 @@
+def palindrome(s):
+    reverse = []
+
+    for i in reversed(range(len(s))):
+        reverse.append(s[i])
+
+    if (s == ''.join(reverse)):
+        return True
+    return False

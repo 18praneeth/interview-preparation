@@ -1,0 +1,14 @@
+def selectionSort(self, array):
+
+    array_len = len(array)
+
+    for i in range(array_len):
+        min_val_index = i
+
+        for j in range(i+1, array_len):
+            if array[j] < array[min_val_index]
+                min_val_index = j
+
+        array[i], array[min_val_index] = array[min_val_index], array[i]
+
+    return array

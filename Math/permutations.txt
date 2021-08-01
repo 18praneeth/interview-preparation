@@ -1,0 +1,12 @@
+def permutations(self, mylist):
+    result = []
+    permu_helper(mylist, [], result)
+    return result
+
+def permu_helper(self, new_list, temp, result):
+    #do all checks
+    if len(new_list) == 0:
+        result.append(temp)
+        return
+    for i in range(len(new_list)):
+        self.permu_helper(new_list[:i]+new_list[i+1:],temp+[new_list[i]], result )

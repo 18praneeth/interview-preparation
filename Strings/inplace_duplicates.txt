@@ -1,0 +1,14 @@
+def duplicate_string(s):
+    my_set = set([])
+
+    w_stream = 0
+    r_stream = 0
+
+    while r_stream < len(s):
+        if s[r_stream] not in my_set:
+            my_set.add(s[r_stream])
+            s[w_stream] = s[r_stream]
+            w_stream += 1
+        r_stream += 1
+
+    s[w_stream] = "\0"

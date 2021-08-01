@@ -1,0 +1,28 @@
+# Division using bit manupulation
+
+def bit_division(dividend, divisor):
+
+    if divisor == 0:
+        return "CASE"
+    
+    if dividend < divisor:
+        return "CASE"
+    
+    if dividend == divisor:
+        return 1
+
+    if divisor == 1:
+        return dividend
+
+    qu = 1
+    temp = divisor
+
+    while temp < dividend:
+        temp <<= 1
+        qu <<= 1
+
+    if temp > dividend:
+        temp >>= 1
+        qu >>= 1
+        return qu + bit_division(dividend-temp, divisor)
+    return qu

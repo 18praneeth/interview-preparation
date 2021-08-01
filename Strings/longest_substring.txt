@@ -1,0 +1,15 @@
+# longest substring in given string
+
+def longest_substring(string):
+
+    global_max = 0
+    start = 0
+    diary = {}
+
+    for s_end in range(len(string)):
+        if string[s_end] in diary:
+            start = max(start, (diary[string[s_end]] + 1))
+        diary[string[s_end]] = s_end
+        global_max = max(global_max, ((s_end - start) + 1))
+
+    return global_max
