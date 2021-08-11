@@ -1,0 +1,28 @@
+def factorial(n):
+    if n==1:
+        return 1
+    return n*factorial(n-1)
+
+def kthPermutation_helper(v, k, result):
+    # If v is not there or k is not there
+    if not v:
+        return
+    n = len(v)
+    b_count = factorial(n-1)
+
+    select = (k-1)//b_count
+
+    result.append(str(v[select]))
+
+    del v[select]
+
+    k = k - (b_count * select)
+
+    kthPermutation_helper(v, k, result)
+
+def kthPermutation(n, k):
+    v = list(range(1, n+1))
+    result = []
+    kthPermutation_helper(v, k, result)
+    return ''.join(result)
+

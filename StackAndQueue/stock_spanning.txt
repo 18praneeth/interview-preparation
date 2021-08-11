@@ -1,0 +1,21 @@
+# imports and classes
+
+def __init(self):
+    self.prices = [100, 80, 60]
+    self.spans = []
+
+def calculateSpan(self, price):
+    index = len(self.prices) - 1
+
+    while index >= 0 and self.prices[index] <= price:
+        span = self.spans[index]
+        index = index - span
+
+    
+
+    self.prices.append(price)
+    element_index = len(self.prices) - 1
+    span = element_index - index
+    self.spans.append(span)
+
+    return span #depends

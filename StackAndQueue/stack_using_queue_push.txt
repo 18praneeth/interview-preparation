@@ -1,0 +1,31 @@
+# imports
+
+class StackWithQ:
+
+    def __init__(self):
+        self.q1 = deque()
+        self.q2 = deque()
+
+    def push(self, val):
+        self.q1.append(val)
+
+    def is_empty(self):
+        if len(self.q1) + len(self.q2) == 0:
+            return True
+        else:
+            return False
+
+    def swap(self):
+        self.q3 = self.q1
+        self.q1 = self.q2
+        self.q2 = self.q3
+
+    def pop(self):
+        if self.is_empty():
+            return -1
+        while len(self.q1) > 1:
+            self.q2.append(self.q1.popleft())
+
+        value_to_be_returned = self.q1.popleft()
+        self.swap()
+        return value_to_be_returned
