@@ -10,9 +10,7 @@ def calculateSpan(self, price):
     while index >= 0 and self.prices[index] <= price:
         span = self.spans[index]
         index = index - span
-
-    
-
+        
     self.prices.append(price)
     element_index = len(self.prices) - 1
     span = element_index - index
