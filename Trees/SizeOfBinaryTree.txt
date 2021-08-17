@@ -1,0 +1,8 @@
+# Your task to complete this function
+# function should return size of the binary tree as integer
+def getSize(node):
+    # code here
+    if not node:
+        return 0
+    else:
+        return getSize(node.left) + getSize(node.right) + 1

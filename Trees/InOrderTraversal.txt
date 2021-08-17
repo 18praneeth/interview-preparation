@@ -1,0 +1,24 @@
+'''
+# Node Class:
+class Node:
+    def init(self,val):
+        self.data = val
+        self.left = None
+        self.right = None
+'''
+
+#Function to return a list containing the inorder traversal of the tree. 
+class Solution:
+    def InOrderHelper(self, root, result):
+        if not root:
+            return
+        
+        self.InOrderHelper(root.left, result)
+        result.append(root.data)
+        self.InOrderHelper(root.right, result)
+        
+    def InOrder(self,root):
+        # code here
+        res = []
+        self.InOrderHelper(root, res)
+        return res

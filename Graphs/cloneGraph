@@ -1,0 +1,23 @@
+# class : val, neighbors = []
+
+    
+#constructor:
+self.diary = {}
+
+def cloneGraph(self, node):
+    if not node:
+        return None
+
+    if node in self.diary[node]:
+        return self.diary[node]
+
+    new_node = Node(node.val)
+    self.diary[node] = new_node
+
+    new_node.neighbors = []
+
+    for n in node.neighbors:
+        new_node.neighbors.apppend(self.cloneGraph(n))
+
+
+    return new_node
