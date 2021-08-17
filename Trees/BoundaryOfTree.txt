@@ -1,0 +1,41 @@
+def left_print(root, result):
+    if root:
+        if root.left:
+            result.append(str(root.val))
+            left_print(root.left, result)
+        elif root.right:
+            result.append(str(root.val))
+            left_print(root.right, result)
+
+def right_print(root, result):
+    if root:
+        if root.right:
+            right_print(root.right, result)
+            result.append(str(root.val))
+        elif root.left:
+            right_print(root.left, result)
+            result.append(str(root.val))
+
+def leaf_print(root, result):
+    if root:
+        leaf_print(root.left, result)
+
+        if root.left is None and root.right is None:
+            result.append(str(root.val))
+
+        leaf_print(root.right, result)
+
+def boundary_print(root):
+    result = []
+
+    if root is not None:
+        result.append(str(root))
+
+        left_print(root.left, result)
+
+        leaf_print(root.left, result)
+        leaf_print(right.right, result)
+
+        right_print(root.right, result)
+
+    return ' '.join(result)

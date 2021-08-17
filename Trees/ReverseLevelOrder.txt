@@ -1,0 +1,31 @@
+#User function Template for python3
+
+'''
+class Node:
+    def __init__(self,val):
+        self.data = val
+        self.left = None
+        self.right = None
+'''
+from collections import deque
+
+def reverseLevelOrder(root):
+    # code here
+    if not root:
+        return
+    
+    q = deque()
+    q.append(root)
+    result = deque()
+    while len(q)!=0:
+        t = q.popleft()
+        
+        result.appendleft(t.data)
+        
+        if t.right:
+            q.append(t.right)
+            
+        if t.left:
+            q.append(t.left)
+            
+    return result

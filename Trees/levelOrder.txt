@@ -1,0 +1,28 @@
+def levelOrder(self, root):
+    if root == None:
+        return
+
+    result = ""  #ask what to do with result
+
+    q = deque()
+    q.append(root)
+    q.append(None)
+
+    while len(q) != 0:
+        t = q.popleft()
+        result += str(t.val) + " "
+        print(str(t.val), end=" ")
+
+        if t.left:
+            q.append(t.left)
+
+        if t.right:
+            q.append(t.right)
+
+        if q[0] == None:
+            result += "\n"
+            print("\n")
+            q.popleft()
+            
+            if len(q) != 0:
+                q.append(None)

@@ -1,0 +1,9 @@
+def pathSum(self, root, sum):
+    if not root: return False
+
+    sum = sum - root.val
+
+    if not root.left and not root.right:
+        return sum == 0
+    else:
+        return self.pathSum(root.left, sum) or self.pathSum(root.right, sum)

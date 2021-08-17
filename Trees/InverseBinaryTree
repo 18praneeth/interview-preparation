@@ -1,0 +1,10 @@
+def swap(self, node):
+    node.left, node.right = node.right, node.left
+
+def flipTree(self, root):
+    if root is None:
+        return
+
+    swap(root)
+    self.flipTree(root.left)
+    self.flipTree(root.right)
