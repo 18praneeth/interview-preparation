@@ -1,0 +1,33 @@
+
+def courseProblem(self, numCourses, preCourses: List[List[int]]):
+
+    UNVISTED, PRCOESSING, DONE = 0, 1, 2
+
+    def deadlockDetector(course):
+        if course_state[course] == PRCOESSING:
+            return True
+        elif course_state[course] == DONE:
+            return False
+
+        for pre_req in requirement[course]:
+        # 2: [0, 1]
+            if deadlockDetector(pre_req):
+                return True
+
+        course_state[course] = DONE
+        return False
+
+
+
+    requirement = collection.defaultdict(list)
+
+    for course, pre_req in preCourses:
+        requirement[course].apppend(pre_req)
+
+    course_state = [UNVISTED for _ in range(numCourses)]
+
+    for c in range(0, numCourses):
+        if deadlockDetector(c):
+            return False
+
+    return True

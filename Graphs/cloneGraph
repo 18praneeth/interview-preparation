@@ -21,3 +21,32 @@ def cloneGraph(self, node):
 
 
     return new_node
+
+    ----------------------------------------------------------------------------------
+
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val = 0, neighbors = None):
+        self.val = val
+        self.neighbors = neighbors if neighbors is not None else []
+"""
+
+class Solution:
+    def cloneGraph(self, node: 'Node') -> 'Node':
+        if not node:
+            return node
+        
+        diary = {node: Node(node.val)}
+        stack = [node]
+        
+        while stack:
+            n = stack.pop()
+            for neigh in n.neighbors:
+                if neigh not in diary:
+                    stack.append(neigh)
+                    diary[neigh] = Node(neigh.val)
+                    
+                diary[n].neighbors.append(diary[neigh])
+                
+        return diary[node]

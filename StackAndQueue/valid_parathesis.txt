@@ -1,18 +1,14 @@
-def validBrackets(self, str):   
-    bracket_map = { "(": ")", "[": "]", "{": "}" }
-    opening_bracket = set( [ "(", "[", "{" ]  )
-
-    stack = []
-
-    for i in str:
-        if i in opening_bracket:
-            stack.append(i)
-        # ), ], }
-        elif stack and i == bracket_map[stack[-1]]
-            stack.pop()
-        else:
-            return False
-
-        if stack == []
-            return True
-        return False
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        hashmap = {'(':')', '{':'}', '[':']'}
+        
+        for char in s:
+            if char in hashmap:
+                stack.append(char)
+            elif stack and hashmap[stack[-1]] == char:
+                stack.pop()
+            else:
+                return False
+                
+        return True if not stack else False
